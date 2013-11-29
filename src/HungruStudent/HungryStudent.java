@@ -18,7 +18,7 @@ public class HungryStudent implements Runnable {
 
                     myFood.isPrepared = false;
 
-                    System.out.println("Студент поел");
+                    System.out.println("РЎС‚СѓРґРµРЅС‚ РїРѕРµР»");
 
                 } catch (InterruptedException e) {
 

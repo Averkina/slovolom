@@ -51,23 +51,23 @@ public class Dictionary {
         for (int i = 0; i < words.size(); i++){
             String str = words.get(i);
 
-            if (str.contains("-") || str.startsWith("À") ||
-                    str.startsWith("Á") || str.startsWith("Â") ||
-                    str.startsWith("Ã") || str.startsWith("Ä") ||
-                    str.startsWith("Å") || str.startsWith("¨") ||
-                    str.startsWith("Æ") || str.startsWith("Ç") ||
-                    str.startsWith("È") || str.startsWith("É") ||
-                    str.startsWith("Ê") || str.startsWith("Ë") ||
-                    str.startsWith("Ì") || str.startsWith("Í") ||
-                    str.startsWith("Î") || str.startsWith("Ï") ||
-                    str.startsWith("Ð") || str.startsWith("Ñ") ||
-                    str.startsWith("Ò") || str.startsWith("Ó") ||
-                    str.startsWith("Ô") || str.startsWith("Õ") ||
-                    str.startsWith("Ö") || str.startsWith("×") ||
-                    str.startsWith("Ø") || str.startsWith("Ù") ||
-                    str.startsWith("Ú") || str.startsWith("Û") ||
-                    str.startsWith("Ü") || str.startsWith("Ý") ||
-                    str.startsWith("Þ") || str.startsWith("ß")) { 
+            if (str.contains("-") || str.startsWith("Ð") ||
+                    str.startsWith("Ð‘") || str.startsWith("Ð’") ||
+                    str.startsWith("Ð“") || str.startsWith("Ð”") ||
+                    str.startsWith("Ð•") || str.startsWith("Ð") ||
+                    str.startsWith("Ð–") || str.startsWith("Ð—") ||
+                    str.startsWith("Ð˜") || str.startsWith("Ð™") ||
+                    str.startsWith("Ðš") || str.startsWith("Ð›") ||
+                    str.startsWith("Ðœ") || str.startsWith("Ð") ||
+                    str.startsWith("Ðž") || str.startsWith("ÐŸ") ||
+                    str.startsWith("Ð ") || str.startsWith("Ð¡") ||
+                    str.startsWith("Ð¢") || str.startsWith("Ð£") ||
+                    str.startsWith("Ð¤") || str.startsWith("Ð¥") ||
+                    str.startsWith("Ð¦") || str.startsWith("Ð§") ||
+                    str.startsWith("Ð¨") || str.startsWith("Ð©") ||
+                    str.startsWith("Ðª") || str.startsWith("Ð«") ||
+                    str.startsWith("Ð¬") || str.startsWith("Ð­") ||
+                    str.startsWith("Ð®") || str.startsWith("Ð¯")) { 
 //                System.out.println("i = " + i + "; object: " + words.get(i));
                 words.remove(i);
             }
@@ -77,8 +77,8 @@ public class Dictionary {
 
     @Test
     public void test() {
-        Assert.assertEquals(true, existsWord("àáàæóð"));
-        Assert.assertEquals(true, existsWord("ÿùóðêà"));
-        Assert.assertEquals(false, existsWord("êîíòðîáîáèê"));
+        Assert.assertEquals(true, existsWord("Ð°Ð±Ð°Ð¶ÑƒÑ€"));
+        Assert.assertEquals(true, existsWord("ÑÑ‰ÑƒÑ€ÐºÐ°"));
+        Assert.assertEquals(false, existsWord("ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð±Ð¾Ð±Ð¸Ðº"));
     }
 }

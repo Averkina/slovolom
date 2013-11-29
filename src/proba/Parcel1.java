@@ -12,8 +12,8 @@ public class Parcel1 {
       }
       String readLabel() { return label; }
     }
-    // Использование внутреннего класса
-    // похоже на использование обычного класса:
+    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РєР»Р°СЃСЃР°
+    // РїРѕС…РѕР¶Рµ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕР±С‹С‡РЅРѕРіРѕ РєР»Р°СЃСЃР°:
     public void ship(String dest) {
       Contents c = new Contents();
       Destination d = new Destination(dest);

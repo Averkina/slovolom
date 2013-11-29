@@ -10,7 +10,7 @@ public class Kock implements Runnable {
 
                 HungryStudent.myFood.isPrepared = true;
 
-                System.out.println("Кушать подано");
+                System.out.println("РљСѓС€Р°С‚СЊ РїРѕРґР°РЅРѕ");
 
                 HungryStudent.myFood.notifyAll();
 

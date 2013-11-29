@@ -93,6 +93,6 @@ class CurrentConditionsDisplay implements Observer
  
     public void display()
     {
-        System.out.printf("Сейчас значения: %.1f градусов цельсия и %.1f %% влажности\n", temperature, humidity);
+        System.out.printf("РЎРµР№С‡Р°СЃ Р·РЅР°С‡РµРЅРёСЏ: %.1f РіСЂР°РґСѓСЃРѕРІ С†РµР»СЊСЃРёСЏ Рё %.1f %% РІР»Р°Р¶РЅРѕСЃС‚Рё\n", temperature, humidity);
     }
 }

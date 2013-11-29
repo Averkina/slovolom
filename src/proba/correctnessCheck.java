@@ -56,8 +56,8 @@ public class correctnessCheck {
     @Test
     public void test() {
 
-        Assert.assertEquals("Ú23456", replaceCharAt("123456", 0, 'Ú'));
-        Assert.assertEquals("1Ú3456", replaceCharAt("123456", 1, 'Ú'));
+        Assert.assertEquals("Ğ·23456", replaceCharAt("123456", 0, 'Ğ·'));
+        Assert.assertEquals("1Ğ·3456", replaceCharAt("123456", 1, 'Ğ·'));
 
         Assert.assertEquals(true, containsWord("123456", "123"));
         Assert.assertEquals(true, containsWord("123456", "45"));
@@ -65,16 +65,16 @@ public class correctnessCheck {
         Assert.assertEquals(true, containsWord("123456", "53"));
         Assert.assertEquals(false, containsWord("123456", "0"));
         Assert.assertEquals(true, containsWord("123456", "6"));
-        Assert.assertEquals(false, containsWord("ÀÄ", "ßÄ"));
-        Assert.assertEquals(false, containsWord("ÎÃÎĞÎÄ", "PÎĞÎÄ"));
-        Assert.assertEquals(false, containsWord("ÎÃÎĞÎÄ", "PÎĞ"));
-        Assert.assertEquals(true, containsWord("ÏÎÃÎÄÀ", "ÃÎÄ"));
-        Assert.assertEquals(true, containsWord("ÎÃÎĞÎÄ", "ÃÎĞÎÄ"));
-        Assert.assertEquals(false, containsWord("ÎÃÎĞÎÄ", "ÎÎO"));
-        Assert.assertEquals(true, containsWord("ÎÃÎĞÎÄ", "ÎĞÎ"));
-        Assert.assertEquals(true, containsWord("ÑÍÅÃÎÏÀÄ", "ÑÍÅÃ"));
-        Assert.assertEquals(false, containsWord("ÑÍÅÃÎÏÀÄ", "ĞÀÄ"));
-        Assert.assertEquals(true, containsWord("ÑÍÅÃÎÏÀÄ", "ÃÀÄ"));
+        Assert.assertEquals(false, containsWord("ÑĞ´", "ÑŠĞ´"));
+        Assert.assertEquals(false, containsWord("Ğ½Ñ†Ğ½Ğ¿Ğ½Ğ´", "PĞ½Ğ¿Ğ½Ğ´"));
+        Assert.assertEquals(false, containsWord("Ğ½Ñ†Ğ½Ğ¿Ğ½Ğ´", "PĞ½Ğ¿"));
+        Assert.assertEquals(true, containsWord("Ğ¾Ğ½Ñ†Ğ½Ğ´Ñ", "Ñ†Ğ½Ğ´"));
+        Assert.assertEquals(true, containsWord("Ğ½Ñ†Ğ½Ğ¿Ğ½Ğ´", "Ñ†Ğ½Ğ¿Ğ½Ğ´"));
+        Assert.assertEquals(false, containsWord("Ğ½Ñ†Ğ½Ğ¿Ğ½Ğ´", "Ğ½Ğ½O"));
+        Assert.assertEquals(true, containsWord("Ğ½Ñ†Ğ½Ğ¿Ğ½Ğ´", "Ğ½Ğ¿Ğ½"));
+        Assert.assertEquals(true, containsWord("ÑĞ¼ĞµÑ†Ğ½Ğ¾ÑĞ´", "ÑĞ¼ĞµÑ†"));
+        Assert.assertEquals(false, containsWord("ÑĞ¼ĞµÑ†Ğ½Ğ¾ÑĞ´", "Ğ¿ÑĞ´"));
+        Assert.assertEquals(true, containsWord("ÑĞ¼ĞµÑ†Ğ½Ğ¾ÑĞ´", "Ñ†ÑĞ´"));
 
         Assert.assertEquals(true, containsWord("123456", "16"));
         Assert.assertEquals(true, containsWord("123456", "61"));
@@ -91,9 +91,9 @@ public class correctnessCheck {
         Assert.assertEquals(false, containsWord("111", "1111"));
         Assert.assertEquals(false, containsWord("", "1"));
 
-        Assert.assertEquals(false, containsWord("òåñò", "Òåñò"));
-        Assert.assertEquals(true, containsWordI("òåñò", "Òåñò"));
-        Assert.assertEquals(false, containsWord("òåñò", "òÅñò"));
-        Assert.assertEquals(true, containsWordI("òåñò", "òÅñò"));
+        Assert.assertEquals(false, containsWord("Ğ Ğ•Ğ¯Ğ ", "Ñ€Ğ•Ğ¯Ğ "));
+        Assert.assertEquals(true, containsWordI("Ğ Ğ•Ğ¯Ğ ", "Ñ€Ğ•Ğ¯Ğ "));
+        Assert.assertEquals(false, containsWord("Ğ Ğ•Ğ¯Ğ ", "Ğ ĞµĞ¯Ğ "));
+        Assert.assertEquals(true, containsWordI("Ğ Ğ•Ğ¯Ğ ", "Ğ ĞµĞ¯Ğ "));
     }
 }

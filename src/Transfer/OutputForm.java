@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 public class OutputForm extends JFrame implements Observer, java.util.Observer {
     OutputForm() {
         setSize(500, 500);
-        setTitle("Νΰαλώδΰςελό");
+        setTitle("ΠΠ°Π±Π»ΡΠ΄Π°Ρ‚ΠµΠ»Ρ");
         setVisible(true);
     }
     @Override
     public void update(Observable node, Object arg) {
         JOptionPane.showMessageDialog(null, arg);
-        setTitle("Νΰαλώδΰςελό: " + arg.toString());
+        setTitle("ΠΠ°Π±Π»ΡΠ΄Π°Ρ‚ΠµΠ»Ρ: " + arg.toString());
     }
 }

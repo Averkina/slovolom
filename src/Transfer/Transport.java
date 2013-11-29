@@ -31,7 +31,7 @@ class Transport extends JFrame {
             }
         });
         setSize(500, 500);
-        setTitle("Наблюдаемая форма");
+        setTitle("РќР°Р±Р»СЋРґР°РµРјР°СЏ С„РѕСЂРјР°");
         add(input);
         setVisible(true);
     }
