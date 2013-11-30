@@ -21,7 +21,7 @@ public class correctnessCheck {
         return sBuffer.toString();
     }
 
-    boolean containsWord(final String longWord, final String subWord) {
+    public static boolean containsWord(final String longWord, final String subWord) {
 
         int j = 0; 
         int i;

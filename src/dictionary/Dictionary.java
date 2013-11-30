@@ -9,20 +9,24 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import proba.correctnessCheck;
+
 public class Dictionary {
 
-    ArrayList<String> words = new ArrayList<String>();
+    ArrayList<String> words = new ArrayList<String>(); // почему плох тут статик?
     String fileName = "e:\\ru.txt";
 
     public static void main(String[] args) throws IOException {
-        new Dictionary();
+        Dictionary wordExample = new Dictionary();
+        ArrayList<String> words = wordExample.combinationsWords("ароматизатор");
+        System.out.println("words: " + words);
     }
 
     public Dictionary() {
         load(fileName);
-        //System.out.println("Words loaded: " + words.size());
+        //        System.out.println("Words loaded: " + words.size());
         filter(words);
-        //System.out.println("Words filtered: " + words.size());
+        //        System.out.println("Words filtered: " + words.size());
     }
 
     private ArrayList<String> load(String fileName) {
@@ -48,7 +52,7 @@ public class Dictionary {
 
     private ArrayList<String> filter(ArrayList<String> words) {
 
-        for (int i = 0; i < words.size(); i++){
+        for (int i = 0; i < words.size(); i++) {
             String str = words.get(i);
 
             if (str.contains("-") || str.startsWith("А") ||
@@ -68,11 +72,24 @@ public class Dictionary {
                     str.startsWith("Ъ") || str.startsWith("Ы") ||
                     str.startsWith("Ь") || str.startsWith("Э") ||
                     str.startsWith("Ю") || str.startsWith("Я")) { 
-//                System.out.println("i = " + i + "; object: " + words.get(i));
+                //                System.out.println("i = " + i + "; object: " + words.get(i));
                 words.remove(i);
             }
         }
         return words;
+    }
+
+    public ArrayList<String> combinationsWords(String longWord) {
+        ArrayList<String> newArrayWords = new ArrayList<String>();
+        for (int i = 0; i < words.size(); i++) {
+            String wordInList = words.get(i);
+
+            if ((correctnessCheck.containsWord(longWord, wordInList) == true) && (longWord.equals(wordInList) != true)) {
+                newArrayWords.add(wordInList);
+//                System.out.println("i = " + i + "; object: " + words.get(i));
+            }
+        }
+        return newArrayWords; 
     }
 
     @Test
