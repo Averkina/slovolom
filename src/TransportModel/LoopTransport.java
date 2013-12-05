@@ -1,23 +1,26 @@
 package TransportModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 class LoopTransport implements AbstractTransport {
 
     private List<AbstractNode> abstractNodes;
-    private int temperature;
 
+    private List<Integer> messageQueue;
+    
     public LoopTransport() {
-        temperature = 1;
+        messageQueue = new ArrayList<Integer>();
         abstractNodes = new ArrayList<AbstractNode>();
+        
 
         Thread thread = new MyThread();
         thread.start();
     }
-
-    public void resetTemparature(int temperature) {
-        this.temperature = temperature;
-        notifyObservers();
+    
+    public void sendMessage(int message) {
+        System.out.println("Send messege: " + message);
+        messageQueue.add(message);
     }
 
     @Override
@@ -25,20 +28,23 @@ class LoopTransport implements AbstractTransport {
         abstractNodes.add(node);
     }
 
-    private void notifyObservers() {
-        for (AbstractNode abstractNode : abstractNodes) {
-            abstractNode.update(temperature);
-        }
-    }
-
     private class MyThread extends Thread {
 
         public void run() {
 
             for(int i = 0; i < 10; i++) {
-                System.out.println("Update of sensors");
-                temperature = (int)(Math.random() * 100);
-                resetTemparature(temperature);
+                System.out.println("Checking queue in transport...");
+                
+                if (!messageQueue.isEmpty()) {
+                    int numberForNode = messageQueue.get(0);
+                    messageQueue.remove(0);
+
+                    for (AbstractNode abstractNode : abstractNodes) {
+                        abstractNode.receiveMessage(numberForNode);
+                    }
+                }
+                
+
                 try {
                     sleep(500);
                 } 

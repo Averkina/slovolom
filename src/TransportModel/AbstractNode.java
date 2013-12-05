@@ -2,7 +2,7 @@ package TransportModel;
 
 interface AbstractNode {
 
-    void update(int temperature);
+    void receiveMessage(int message);
     void setTransport(AbstractTransport transport);
 
 }

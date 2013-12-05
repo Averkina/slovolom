@@ -1,26 +1,51 @@
 package TransportModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Node implements AbstractNode {
-    private int temperature;
-    //        private AbstractTransport abstractTransport;
+
+    private AbstractTransport transport;
+    private List<Integer> messageQueue;
 
     public Node() {
-        //        abstractTransport = newTransport;
+        messageQueue = new ArrayList<Integer>();
+
+        Thread thread = new MyThread();
+        thread.start();
     }
 
     @Override
-    public void update(int temperature) {
-        this.temperature = temperature;
-        display();
-    }
+    public void receiveMessage(int message) {
+        System.out.printf("receiveMessage: %d\n", message);
 
-    public void display() {
-        System.out.printf("Values: %d temperature\n", temperature);
+        messageQueue.add(message);
+        System.out.println("Message Queue" + messageQueue);
     }
 
     @Override
-    public void setTransport(AbstractTransport transport) {
-        // TODO Auto-generated method stub
-        
+    public void setTransport(AbstractTransport newTransport) {
+        transport = newTransport;
     }
+
+    private class MyThread extends Thread {
+
+        public void run() {
+
+            for (int i = 0; i < 10; i++) {
+
+                int numberForTransport = (int)(Math.random() * 100);
+
+                transport.sendMessage(numberForTransport);
+
+                try {
+                    sleep(500);
+                } 
+                catch (Exception e) {
+                    // TODO: handle exception
+                }
+            }
+        }
+    }
+
 }
